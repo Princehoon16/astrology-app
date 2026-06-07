@@ -7,3 +7,478 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@keyframes moonSlideDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+}
+
+.moon-slide {
+    animation: moonSlideDown 1.5s ease forwards;
+}
+
+
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+#redStone,
+#blackStone,
+#jupiter,
+#goldStone,
+#silverStone {
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+@keyframes floatPlanet {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#jupiter {
+    animation: floatPlanet 6s ease-in-out infinite;
+}
+
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Rotating Animation for Left Image */
+.rotating-image {
+    animation: rotate 10s linear infinite;
+    display: inline-block;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pause rotation on hover */
+.rotating-image:hover {
+    animation-play-state: paused;
+}
+
+
+/*  */
+
+.magic-section {
+    background: #FFFFFF;
+    position: relative;
+}
+
+/* Stars background */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, #FCD64A 2px, transparent 2px),
+        radial-gradient(circle, #FFD700 1.5px, transparent 1.5px);
+
+    background-size: 80px 80px, 140px 140px;
+
+    opacity: 0.8;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Stack Container */
+.stack-container {
+    min-height: 260vh;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual Card */
+.magic-card {
+    position: sticky;
+    /* transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); */
+    margin-bottom: 40px;
+    top: 120px;
+
+
+}
+
+
+/* Different top positions for natural stacking */
+/* .card-1 { top: 120px; z-index: 40; }
+        .card-2 { top: 100px; z-index: 30; }
+        .card-3 { top: 80px; z-index: 20; }
+        .card-4 { top: 60px; z-index: 10; } */
+
+/* Card Hover Effect */
+.magic-card:hover {
+    transform: translateY(-8px);
+}
+
+.magic-card:hover .card-inner {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+/* Card Inner */
+.card-inner {
+    background: rgba(20, 10, 40, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.card-1 {
+    top: 100px;
+}
+
+.card-2 {
+    top: 120px;
+}
+
+.card-3 {
+    top: 140px;
+}
+
+.card-4 {
+    top: 160px;
+}
+
+/* Image Container */
+.card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.magic-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Number styling */
+.card-number {
+    font-size: 90px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFD700, #FF6B9D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    line-height: 1;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-number {
+        font-size: 50px;
+    }
+
+    .card-1 {
+        top: 80px;
+    }
+
+    .card-2 {
+        top: 70px;
+    }
+
+    .card-3 {
+        top: 60px;
+    }
+
+    .card-4 {
+        top: 50px;
+    }
+
+    .magic-card {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* css pricing */
+
+.service-cards {
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    backdrop-filter: blur(2px);
+}
+
+.service-cards:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.2);
+}
+
+/* mystical border gradient animation */
+.border-gradient-animate {
+    background: linear-gradient(115deg, #4c1d95, #7e22ce, #a855f7, #7e22ce);
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.star-bg {
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 255, 200, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+
+/* testimonial slider */
+
+.swiper-slide {
+    height: auto;
+    transition: opacity 0.25s ease;
+}
+
+.testimonial-card {
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(139, 92, 246, 0.15);
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    transition: all 0.2s ease;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.02);
+}
+
+.swiper-pagination-bullet {
+    background: #cbd5e1;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.swiper-pagination-bullet-active {
+    background: #8b5cf6;
+    opacity: 1;
+    width: 28px;
+    border-radius: 20px;
+}
+
+/* hide default swiper navigation arrows if any, we use custom ones */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none;
+}
+
+.autoplay-progress {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    z-index: 20;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #e9e9ef;
+}
+
+.autoplay-progress svg {
+    --progress: 0;
+    width: 32px;
+    height: 32px;
+    stroke: #8b5cf6;
+    stroke-width: 3;
+    fill: none;
+    transform: rotate(-90deg);
+}
+
+
+/* blog css */
+
+.blog-card {
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.05);
+}
+
+.blog-image {
+    overflow: hidden;
+}
+
+.blog-image img {
+    transition: transform 0.6s ease;
+}
+
+.read-more {
+    position: relative;
+}
+
+.read-more::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #8b5cf6;
+    transition: width 0.3s ease;
+}
+
+.blog-card:hover .read-more::after {
+    width: 100%;
+}
+
+.category-badge {
+    backdrop-filter: blur(4px);
+}
+
+
+/* contact us css  */
+
+.contact-card {
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+}
+
+.input-focus:focus {
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    border-color: #8b5cf6;
+    outline: none;
+}
+
+.submit-btn {
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.4);
+}
+
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: #8b5cf6;
+}
